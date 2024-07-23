@@ -30,6 +30,11 @@ class DataCartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_cart)
         init()
+        val birthday = addFields()
+        ageAndBirthday(birthday)
+    }
+
+    private fun addFields(): String? {
         val person = intent.extras?.getSerializable("person") as Person
         val firstName = person.firstName
         val secondName = person.secondName
@@ -39,7 +44,11 @@ class DataCartActivity : AppCompatActivity() {
         photoDataIV.setImageURI(photo)
         firstNameTV.text = firstName
         secondNameTV.text = secondName
+        return birthday
+    }
 
+    @SuppressLint("SimpleDateFormat")
+    private fun ageAndBirthday(birthday: String?) {
         val currentDate = Date()
         val dateFormat = SimpleDateFormat("dd MM yyyy")
         dateFormat.timeZone = TimeZone.getTimeZone("GMT+3")
@@ -53,7 +62,8 @@ class DataCartActivity : AppCompatActivity() {
         val daysToday = listToday[0] + listToday[1] * 30
         val daysBirthday = listBirthday[0] + listBirthday[1] * 30
 
-        val days = if (daysToday - daysBirthday < 0) daysBirthday - daysToday else 365 - daysToday + daysBirthday
+        val days =
+            if (daysToday - daysBirthday < 0) daysBirthday - daysToday else 365 - daysToday + daysBirthday
 
         val month: Int = days / 30
         val day = days - month * 30
@@ -66,8 +76,6 @@ class DataCartActivity : AppCompatActivity() {
 
         val timeOfBirthday = "$day дней и $month месяцев"
         timeOfBirthdayTV.text = timeOfBirthday
-
-
     }
 
     private fun dateToInt(date: String): List<Int> {
