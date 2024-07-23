@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DataCard</string>
+    <string name="secondName">Фамилия</string>
+    <string name="dataBirthday">День рожденья</string>
+    <string name="save">Сохранить</string>
+    <string name="firstNameTV">Имя</string>
+    <string name="age">Возраст</string>
+    <string name="exit">Exit</string>
+    <string name="formatDataBirthday">dd MM yyyy</string>
+</resources>
