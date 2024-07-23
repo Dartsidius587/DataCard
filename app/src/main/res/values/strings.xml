@@ -7,4 +7,5 @@
     <string name="age">Возраст</string>
     <string name="exit">Exit</string>
     <string name="formatDataBirthday">dd MM yyyy</string>
+    <string name="title_left_until_birthday">До дня рождения осталось</string>
 </resources>
